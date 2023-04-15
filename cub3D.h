@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/14 18:29:21 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/15 02:46:52 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ typedef struct s_player
 
 typedef struct s_maze
 {
-	struct				s_player;
+	struct s_player		player;
 	char				**map_checked;
 	char				*north_path;
 	char				*south_path;
@@ -43,6 +43,7 @@ typedef struct s_maze
 	void				*mlx_ptr;
 	void				*window_ptr;
 	void				*image_ptr;
+	
 }t_maze;
 
 
@@ -56,7 +57,8 @@ char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 void	map_check(t_maze *data, int ac, char **av);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
-
+char	*ft_strtrim(char *s1, char *set);
+char	*ft_strrchr(const char *s, int c);
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);
 // static int	l_i(const char *s, char c, int i, int *l);

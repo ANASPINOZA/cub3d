@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/14 18:15:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/15 02:46:36 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -95,4 +95,51 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	while (i < n - 1 && s1[i] != '\0' && s2[i] != '\0' && s1[i] == s2[i])
 		i++;
 	return ((unsigned char)s1[i] - (unsigned char)s2[i]);
+}
+
+char	*ft_strtrim(char *s1, char *set)
+{
+	char	*str;
+	int		start;
+	int		end;
+	int		i;
+
+	if (!s1 || !set)
+		return (NULL);
+	if (*s1 == '\0' || *set == 0)
+		return (ft_strdup(s1));
+	i = 0;
+	end = ft_strlen(s1) - 1;
+	start = 0;
+	while (ft_strchr(set, s1[start]) != 0 && start < end + 1)
+		start++;
+	while (ft_strchr(set, s1[end]) != 0 && end > 0)
+		end--;
+	if (end <= 0)
+		return (ft_strdup(""));
+	str = (char *)malloc(sizeof(char) * (end - start + 2));
+	if (!str)
+		return (NULL);
+	while (start <= end)
+		str[i++] = s1[start++];
+	str[i] = '\0';
+	return (str);
+}
+
+char	*ft_strrchr(const char *s, int c)
+{
+	int	i;
+
+	i = 0;
+	while (s[i])
+	{
+		i++;
+	}
+	while (i >= 0)
+	{
+		if (s[i] == (char)c)
+			return ((char *)(s + i));
+		i--;
+	}
+	return (NULL);
 }
