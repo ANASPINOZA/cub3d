@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/15 02:46:52 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/15 23:04:41 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,13 @@ void	map_check(t_maze *data, int ac, char **av);
 int	ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_strrchr(const char *s, int c);
+
+void	north_traitement(t_maze *data, char *path, int *flag , int start);
+void	south_traitement(t_maze *data, char *path, int *flag , int start);
+void	east_traitement(t_maze *data, char *path, int *flag , int start);
+void	west_traitement(t_maze *data, char *path, int *flag , int start);
+void	directions_traitement(t_maze *data, char *path, int *flag , int start);
+
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);
 // static int	l_i(const char *s, char c, int i, int *l);

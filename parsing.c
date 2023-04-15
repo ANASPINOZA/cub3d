@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/15 02:52:36 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/15 23:24:46 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,57 +49,58 @@ char	*extract_map(int ac, char **av)
 	return (tmp);
 }
 
-void	north_traitement(t_maze *data,  char *path, int *flag, int start)
-{
-	int		i;
-	char	*north_check;
+// void	north_traitement(t_maze *data, char *path, int *flag , int start)
+// {
+// 	int		i;
+// 	int		fd;
+// 	char	*north_check;
 	
-	i = 0;
-	if (path[start] == '.' && path[start + 1] == '/')
-	{
-		north_check = ft_strtrim(ft_strch(path, "."), " \t");
-		if (ft_strcmp(ft_strrchr(north_check, '.'), ".xpm") != 0)
-			ft_error("texture extenion");
-		*flag++;
-		// North_check = ft_strchr(path[i], '.');
-	}
-	// else
-	// 	ft_error("SOUTH ")
-}
+// 	i = 0;
+// 	printf ("[%s]    start : %d\n", path, start);
+// 	if (path[start] == '.' && path[start + 1] == '/')
+// 	{
+// 		printf ("here\n");
+// 		north_check = ft_strtrim(ft_strchr(path, '.'), " \t");
+// 		printf ("[%s]\n", north_check);
+// 		if (ft_strcmp(ft_strrchr(north_check, '.'), ".xpm") != 0)
+// 			ft_error("texture extenion ");
+// 		fd = open(north_check, O_RDONLY);
+// 		if (fd == -1)
+// 			ft_error ("open file ");
+// 		else
+// 			data->north_path = ft_strdup(north_check);
+// 		*flag += 1;
+// 	}
+// }
 
 void	data_traitement(char **map, t_maze *data)
 {
 	int		i;
 	int		j;
 	int		flag;
-	// char	*north_check;
-	char	*south_check;
-	char	*west_check;
-	char	*east_check;
-	
 
 	flag = 0;
 	i = 0;
 	j = 0;
 	
-	while (map[i])
+	while (map[i] && flag != 4)
 	{
 		j = 0;
-		while (map[i][j] == ' ')
-			j++;
-		north_traitement(data, map[i], &flag, j);
-		if (ft_strncmp("NO ", ft_strchr(map[i], 'N'), 3) == 0)
+		while (map[i][j] == ' ' || map[i][j] == '\t')
 		{
-			j += 3;
-			if (map[i][j] == '.' && map[i][j + 1] == '/')
-			{
-				
-			}
-			// North_check = ft_strchr(map[i], '.');
-			
+			if (map[i][j] == '\t')
+				ft_error("");
+			j++;
 		}
-		else
-			ft_error("SOUTH ")
+		directions_traitement(data, map[i], &flag, j);
+		printf ("flag : %d\n", flag);
+		// if (ft_strncmp("NO ", ft_strchr(map[i], 'N'), 3) == 0)
+		// {
+		// 	j += 3;
+		// 	north_traitement(data, map[i], &flag, j);
+		// }
+		
+		i++;
 	}
 }
 
@@ -115,12 +116,12 @@ void	map_check(t_maze *data, int ac, char **av)
 	j = 0;
 	map_one_dim = extract_map(ac, av);
 	map_two_dim = ft_split(map_one_dim, '\n');
-	while (map_two_dim[i])
-	{
+	// while (map_two_dim[i])
+	// {
 		 
-		ft_putstr(map_two_dim[i]);
-		ft_putstr("\n");
-		i++;
-	}
-	// data_traitement(map_two_dim, &data);
+	// 	ft_putstr(map_two_dim[i]);
+	// 	ft_putstr("\n");
+	// 	i++;
+	// }
+	data_traitement(map_two_dim, data);
 }
