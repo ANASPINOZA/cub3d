@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/15 23:04:41 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/16 16:56:56 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct s_maze
 	char				*south_path;
 	char				*west_path;
 	char				*east_path;
-	char				*floor_color;
-	char				*ceiling_color;
+	char				**floor_color;
+	char				**ceiling_color;
 	int					map_width;
 	int					map_height;
 	void				*mlx_ptr;
@@ -56,9 +56,10 @@ char	*get_next_line(int fd);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 void	map_check(t_maze *data, int ac, char **av);
-int	ft_strncmp(const char *s1, const char *s2, size_t n);
+int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_strrchr(const char *s, int c);
+
 
 void	north_traitement(t_maze *data, char *path, int *flag , int start);
 void	south_traitement(t_maze *data, char *path, int *flag , int start);

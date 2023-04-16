@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/15 23:24:46 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/16 16:13:52 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,30 +49,6 @@ char	*extract_map(int ac, char **av)
 	return (tmp);
 }
 
-// void	north_traitement(t_maze *data, char *path, int *flag , int start)
-// {
-// 	int		i;
-// 	int		fd;
-// 	char	*north_check;
-	
-// 	i = 0;
-// 	printf ("[%s]    start : %d\n", path, start);
-// 	if (path[start] == '.' && path[start + 1] == '/')
-// 	{
-// 		printf ("here\n");
-// 		north_check = ft_strtrim(ft_strchr(path, '.'), " \t");
-// 		printf ("[%s]\n", north_check);
-// 		if (ft_strcmp(ft_strrchr(north_check, '.'), ".xpm") != 0)
-// 			ft_error("texture extenion ");
-// 		fd = open(north_check, O_RDONLY);
-// 		if (fd == -1)
-// 			ft_error ("open file ");
-// 		else
-// 			data->north_path = ft_strdup(north_check);
-// 		*flag += 1;
-// 	}
-// }
-
 void	data_traitement(char **map, t_maze *data)
 {
 	int		i;
@@ -83,7 +59,7 @@ void	data_traitement(char **map, t_maze *data)
 	i = 0;
 	j = 0;
 	
-	while (map[i] && flag != 4)
+	while (map[i] && flag != 6)
 	{
 		j = 0;
 		while (map[i][j] == ' ' || map[i][j] == '\t')
@@ -94,12 +70,6 @@ void	data_traitement(char **map, t_maze *data)
 		}
 		directions_traitement(data, map[i], &flag, j);
 		printf ("flag : %d\n", flag);
-		// if (ft_strncmp("NO ", ft_strchr(map[i], 'N'), 3) == 0)
-		// {
-		// 	j += 3;
-		// 	north_traitement(data, map[i], &flag, j);
-		// }
-		
 		i++;
 	}
 }
@@ -109,13 +79,14 @@ void	map_check(t_maze *data, int ac, char **av)
 	int		i;
 	int		j;
 	char	*map_one_dim;
-	char	**map_two_dim;
+	// char	**map_two_dim;
 	
 	(void)(data);
 	i = 0;
 	j = 0;
 	map_one_dim = extract_map(ac, av);
-	map_two_dim = ft_split(map_one_dim, '\n');
+	printf ("[%s]\n", map_one_dim);
+	// map_two_dim = ft_split(map_one_dim, '\n');
 	// while (map_two_dim[i])
 	// {
 		 
@@ -123,5 +94,5 @@ void	map_check(t_maze *data, int ac, char **av)
 	// 	ft_putstr("\n");
 	// 	i++;
 	// }
-	data_traitement(map_two_dim, data);
+	// data_traitement(map_two_dim, data);
 }

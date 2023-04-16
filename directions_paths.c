@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/15 23:28:33 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/16 17:07:14 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,9 @@
 
 void	north_traitement(t_maze *data, char *path, int *flag , int start)
 {
-	int		i;
 	int		fd;
 	char	*north_check;
 	
-	i = 0;
 	printf ("[%s]    start : %d\n", path, start);
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
@@ -38,11 +36,9 @@ void	north_traitement(t_maze *data, char *path, int *flag , int start)
 }
 void	south_traitement(t_maze *data, char *path, int *flag , int start)
 {
-	int		i;
 	int		fd;
 	char	*south_check;
-	
-	i = 0;
+
 	printf ("[%s]    start : %d\n", path, start);
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
@@ -62,11 +58,9 @@ void	south_traitement(t_maze *data, char *path, int *flag , int start)
 
 void	east_traitement(t_maze *data, char *path, int *flag , int start)
 {
-	int		i;
 	int		fd;
 	char	*east_check;
-	
-	i = 0;
+
 	printf ("[%s]    start : %d\n", path, start);
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
@@ -86,11 +80,9 @@ void	east_traitement(t_maze *data, char *path, int *flag , int start)
 
 void	west_traitement(t_maze *data, char *path, int *flag , int start)
 {
-	int		i;
 	int		fd;
 	char	*west_check;
-	
-	i = 0;
+
 	printf ("[%s]    start : %d\n", path, start);
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
@@ -113,8 +105,8 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 	int		i;
 	int		j;
 
-	i = 0;
 	j = start + 3;
+	i = start + 2;
 	if (ft_strncmp("NO ", ft_strchr(path, 'N'), 3) == 0)
 		north_traitement(data, path, flag, j);
 	else if (ft_strncmp("SO ", ft_strchr(path, 'S'), 3) == 0)
@@ -123,6 +115,10 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 		west_traitement(data, path, flag, j);
 	else if (ft_strncmp("EA ", ft_strchr(path, 'E'), 3) == 0)
 		east_traitement(data, path, flag, j);
+	else if (ft_strncmp("F ", ft_strchr(path, 'F'), 2) == 0)
+		floor_traitement(data, path, flag, i);
+	else if (ft_strncmp("C ", ft_strchr(path, 'C'), 2) == 0)
+		ceiling_traitement(data, path, flag, i);
 	else
 		ft_error("directions ");
 }
