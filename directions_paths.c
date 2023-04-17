@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 17:07:14 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/16 18:42:33 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,6 +119,8 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 		floor_traitement(data, path, flag, i);
 	else if (ft_strncmp("C ", ft_strchr(path, 'C'), 2) == 0)
 		ceiling_traitement(data, path, flag, i);
+	else if (is_wall(path) && flag != 6)
+		ft_error("mixed up map ");
 	else
 		ft_error("directions ");
 }

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 16:56:56 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/16 18:38:08 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	map_check(t_maze *data, int ac, char **av);
 int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_strrchr(const char *s, int c);
-
+int		is_wall(char *line);
 
 void	north_traitement(t_maze *data, char *path, int *flag , int start);
 void	south_traitement(t_maze *data, char *path, int *flag , int start);

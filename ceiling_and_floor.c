@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 17:52:04 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/16 18:37:20 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,5 +52,23 @@ void	ceiling_and_floor(char *rgb_color)
 	int		i;
 
 	i = 0;
-	// check is the color valid to start storing it ad a 2d array
+	// check is the color valid to start storing it as a 2d array
+	
+}
+
+int		is_wall(char *line)
+{
+	int		i;
+
+	i = 0;
+	while (line[i])
+	{
+		while (line[i] == ' ' || line[i] == '\t')
+			i++;
+		if (line[i] == '1')
+			i++;
+		else
+			return (1);
+	}
+	return (0);
 }
