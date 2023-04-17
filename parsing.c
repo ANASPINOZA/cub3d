@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 16:13:52 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/17 23:16:13 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,14 +79,14 @@ void	map_check(t_maze *data, int ac, char **av)
 	int		i;
 	int		j;
 	char	*map_one_dim;
-	// char	**map_two_dim;
+	char	**map_two_dim;
 	
 	(void)(data);
 	i = 0;
 	j = 0;
 	map_one_dim = extract_map(ac, av);
-	printf ("[%s]\n", map_one_dim);
-	// map_two_dim = ft_split(map_one_dim, '\n');
+	// printf ("[%s]\n", map_one_dim);
+	map_two_dim = ft_split(map_one_dim, '\n');
 	// while (map_two_dim[i])
 	// {
 		 
@@ -94,5 +94,5 @@ void	map_check(t_maze *data, int ac, char **av)
 	// 	ft_putstr("\n");
 	// 	i++;
 	// }
-	// data_traitement(map_two_dim, data);
+	data_traitement(map_two_dim, data);
 }

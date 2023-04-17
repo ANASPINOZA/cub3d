@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 18:42:33 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/17 23:34:44 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	north_traitement(t_maze *data, char *path, int *flag , int start)
 	char	*north_check;
 	
 	printf ("[%s]    start : %d\n", path, start);
+	while (path[start] == ' ' || path[start] == '\t')
+		start++;
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
 		printf ("here\n");
@@ -40,6 +42,8 @@ void	south_traitement(t_maze *data, char *path, int *flag , int start)
 	char	*south_check;
 
 	printf ("[%s]    start : %d\n", path, start);
+	while (path[start] == ' ' || path[start] == '\t')
+		start++;
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
 		printf ("here\n");
@@ -62,6 +66,8 @@ void	east_traitement(t_maze *data, char *path, int *flag , int start)
 	char	*east_check;
 
 	printf ("[%s]    start : %d\n", path, start);
+	while (path[start] == ' ' || path[start] == '\t')
+		start++;
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
 		printf ("here\n");
@@ -84,6 +90,8 @@ void	west_traitement(t_maze *data, char *path, int *flag , int start)
 	char	*west_check;
 
 	printf ("[%s]    start : %d\n", path, start);
+	while (path[start] == ' ' || path[start] == '\t')
+		start++;
 	if (path[start] == '.' && path[start + 1] == '/')
 	{
 		printf ("here\n");
@@ -107,19 +115,38 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 
 	j = start + 3;
 	i = start + 2;
-	if (ft_strncmp("NO ", ft_strchr(path, 'N'), 3) == 0)
+	
+	// if (ft_strncmp("NO ", ft_strchr(path, 'N'), 3) == 0)
+	// 	north_traitement(data, path, flag, j);
+	// else if (ft_strncmp("SO ", ft_strchr(path, 'S'), 3) == 0)
+	// 	south_traitement(data, path, flag, j);
+	// else if (ft_strncmp("WE ", ft_strchr(path, 'W'), 3) == 0)
+	// 	west_traitement(data, path, flag, j);
+	// else if (ft_strncmp("EA ", ft_strchr(path, 'E'), 3) == 0)
+	// 	east_traitement(data, path, flag, j);
+	// // else if (ft_strncmp("F ", ft_strchr(path, 'F'), 2) == 0)
+	// // 	floor_traitement(data, path, flag, i);
+	// // else if (ft_strncmp("C ", ft_strchr(path, 'C'), 2) == 0)
+	// // 	ceiling_traitement(data, path, flag, i);
+	// else if (is_wall(path) && *flag != 6)
+	// 	ft_error("mixed up map ");
+	// else
+	// 	ft_error("directions ");
+	
+	printf ("start : %d\n", start);
+	if (path[start] == 'N' && path[start + 1] == 'O')
 		north_traitement(data, path, flag, j);
-	else if (ft_strncmp("SO ", ft_strchr(path, 'S'), 3) == 0)
+	else if (path[start] == 'S' && path[start + 1] == 'O')
 		south_traitement(data, path, flag, j);
-	else if (ft_strncmp("WE ", ft_strchr(path, 'W'), 3) == 0)
+	else if (path[start] == 'W' && path[start + 1] == 'E')
 		west_traitement(data, path, flag, j);
-	else if (ft_strncmp("EA ", ft_strchr(path, 'E'), 3) == 0)
+	else if (path[start] == 'E' && path[start + 1] == 'A')
 		east_traitement(data, path, flag, j);
-	else if (ft_strncmp("F ", ft_strchr(path, 'F'), 2) == 0)
+	else if (path[start] == 'F' && path[start + 1] == ' ')
 		floor_traitement(data, path, flag, i);
-	else if (ft_strncmp("C ", ft_strchr(path, 'C'), 2) == 0)
+	else if (path[start] == 'C' && path[start + 1] == ' ')
 		ceiling_traitement(data, path, flag, i);
-	else if (is_wall(path) && flag != 6)
+	else if (is_wall(path) && *flag != 4)
 		ft_error("mixed up map ");
 	else
 		ft_error("directions ");
