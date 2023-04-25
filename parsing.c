@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/17 23:16:13 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/25 16:58:01 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,10 +37,15 @@ char	*extract_map(int ac, char **av)
 	fd = check_n_read(ac, av);
 	str = get_next_line(fd);
 	if (!str)
-		return (NULL);
+		ft_error("empty map ");
 	tmp = ft_strdup("");
 	while (str)
 	{
+		if (str[0] == '\n')
+		{
+			free(str);
+			str = ft_strdup(" \n");
+		}
 		tmp = ft_strjoin(tmp, str);
 		free(str);
 		str = get_next_line(fd);
