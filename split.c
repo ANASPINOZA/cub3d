@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 17:37:16 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/14 18:02:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 21:44:37 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,7 +103,7 @@
 // 	return (string);
 // }
 
-static char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	char			*sub;
 	unsigned int	i;

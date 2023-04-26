@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 18:38:08 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 21:43:57 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,8 @@ typedef struct s_maze
 	char				*south_path;
 	char				*west_path;
 	char				*east_path;
-	char				**floor_color;
-	char				**ceiling_color;
+	int					*floor_color[3];
+	int					*ceiling_color[3];
 	int					map_width;
 	int					map_height;
 	void				*mlx_ptr;
@@ -50,6 +50,7 @@ typedef struct s_maze
 int		ft_strlen(char *str);
 void	ft_error(char *status);
 void	ft_putstr(char *str);
+char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(char *s1, char *s2);
 char	*get_next_line(int fd);
@@ -66,6 +67,8 @@ void	south_traitement(t_maze *data, char *path, int *flag , int start);
 void	east_traitement(t_maze *data, char *path, int *flag , int start);
 void	west_traitement(t_maze *data, char *path, int *flag , int start);
 void	directions_traitement(t_maze *data, char *path, int *flag , int start);
+void	floor_traitement(t_maze *data, char *path, int *flag , int start);
+int		is_space(char c);
 
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);

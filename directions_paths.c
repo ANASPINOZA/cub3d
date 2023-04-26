@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/25 17:07:27 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 18:53:56 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -132,18 +132,23 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 	j = start + 3;
 	i = start + 2;
 	printf ("start : %d\n", start);
-	if (path[start] == 'N' && path[start + 1] == 'O')
+	if (path[0] == ' ' && path[1] == '\0')
+		return;
+	else if (path[start] == 'N' && path[start + 1] == 'O' && is_space(path[start + 2]))
 		north_traitement(data, path, flag, j);
-	else if (path[start] == 'S' && path[start + 1] == 'O')
+	else if (path[start] == 'S' && path[start + 1] == 'O' && is_space(path[start + 2]))
 		south_traitement(data, path, flag, j);
-	else if (path[start] == 'W' && path[start + 1] == 'E')
+	else if (path[start] == 'W' && path[start + 1] == 'E' && is_space(path[start + 2]))
 		west_traitement(data, path, flag, j);
-	else if (path[start] == 'E' && path[start + 1] == 'A')
+	else if (path[start] == 'E' && path[start + 1] == 'A' && is_space(path[start + 2]))
 		east_traitement(data, path, flag, j);
-	else if (path[start] == 'F' && path[start + 1] == ' ')
-		floor_traitement(data, path, flag, i);
-	else if (path[start] == 'C' && path[start + 1] == ' ')
-		ceiling_traitement(data, path, flag, i);
+	else if (path[start] == 'F' && is_space(path[start + 1]))
+		{
+			printf ("hollllllllllla\n");
+			floor_traitement(data, path, flag, i);
+		}
+	// else if (path[start] == 'C' && path[start + 1] == ' ')
+	// 	ceiling_traitement(data, path, flag, i);
 	else if (is_wall(path) && *flag != 4)
 		ft_error("messed up map ");
 	else

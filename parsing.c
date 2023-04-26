@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/25 16:58:01 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/25 17:45:18 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ void	data_traitement(char **map, t_maze *data)
 	while (map[i] && flag != 6)
 	{
 		j = 0;
-		while (map[i][j] == ' ' || map[i][j] == '\t')
+		while (map[i] && (map[i][j] == ' ' || map[i][j] == '\t'))
 		{
 			if (map[i][j] == '\t')
 				ft_error("");

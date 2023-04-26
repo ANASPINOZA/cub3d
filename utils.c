@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/16 16:03:54 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 21:44:25 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,3 +145,35 @@ char	*ft_strrchr(const char *s, int c)
 	}
 	return (NULL);
 }
+
+int	is_space(char c)
+{
+	if (c == ' ' || c == '\t')
+		return (1);
+	return (0);
+}
+
+// char	*ft_substr(char *s, int start, int len)
+// {
+// 	char			*sub;
+// 	int				i;
+// 	int				l;
+
+// 	if (!s)
+// 		return (NULL);
+// 	l = ft_strlen(s + start);
+// 	if (l < len)
+// 	len = l;
+// 	i = 0;
+// 	if (start >= ft_strlen(s) || len == 0)
+// 		return (ft_strdup(""));
+// 	sub = (char *)malloc(sizeof(char) * (len + 1));
+// 	if (!sub)
+// 		return (NULL);
+// 	if (len > ft_strlen(s))
+// 		len = ft_strlen(s);
+// 	while (i < len)
+// 		sub[i++] = s[start++];
+// 	sub[i] = '\0';
+// 	return (sub);
+// }

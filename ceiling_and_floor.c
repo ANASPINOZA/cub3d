@@ -6,24 +6,40 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/17 23:25:35 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 21:50:21 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-// void	floor_traitement(t_maze *data, char *path, int *flag , int start)
-// {
-// 	// int		fd;
-// 	char	*floor_check;
-
-// 	printf ("[%s]    start : %d\n", path, start);
-// 	if (path[start] >= '0' && path[start] <= '9')
-// 	{
+void	floor_traitement(t_maze *data, char *path, int *flag , int start)
+{
+	int		i;
+	char	*s;
+	// int		num;
+	char	*floor_check;
+	
+	(void)data;
+	i = 0;
+	floor_check = ft_strdup("");
+	printf ("path : [%s]    start : %d\n", path, start);
+	while (path[start] == ' ' || path[start] == '\t')
+		start++;
+	if (path[start] >= '0' && path[start] <= '9')
+	{
+		while (path[start] != ',' && path[start] != ' ' && path[start] != '\t')
+		{
+			s = ft_substr(path, start, 1);
+			floor_check = ft_strjoin(floor_check, s);
+			free(s);
+			start++;
+		}
+		printf ("{{{%s}}}\n", floor_check);
+	
 		
-// 		*flag += 1;
-// 	}
-// }
+		*flag += 1;
+	}
+}
 
 // void	ceiling_traitement(t_maze *data, char *path, int *flag , int start)
 // {
@@ -61,7 +77,7 @@ int		is_wall(char *line)
 	int		i;
 
 	i = 0;
-		printf ("{%s}\n", line);	
+	printf ("{%s}\n", line);
 	while (line[i])
 	{
 		while (line[i] == ' ' || line[i] == '\t')
