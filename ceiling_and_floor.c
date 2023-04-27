@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 21:50:21 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 22:39:54 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ void	floor_traitement(t_maze *data, char *path, int *flag , int start)
 			start++;
 		}
 		printf ("{{{%s}}}\n", floor_check);
-	
 		
 		*flag += 1;
 	}

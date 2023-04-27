@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 21:43:57 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/26 23:31:17 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(char *s1, char *s2);
 char	*get_next_line(int fd);
+int	ft_atoi(const char *str);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 void	map_check(t_maze *data, int ac, char **av);

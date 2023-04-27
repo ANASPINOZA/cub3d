@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 21:44:25 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/27 14:08:18 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,27 +153,29 @@ int	is_space(char c)
 	return (0);
 }
 
-// char	*ft_substr(char *s, int start, int len)
-// {
-// 	char			*sub;
-// 	int				i;
-// 	int				l;
+int	ft_atoi(const char *str)
+{
+	int	i;
+	int	base;
+	int	sign;
 
-// 	if (!s)
-// 		return (NULL);
-// 	l = ft_strlen(s + start);
-// 	if (l < len)
-// 	len = l;
-// 	i = 0;
-// 	if (start >= ft_strlen(s) || len == 0)
-// 		return (ft_strdup(""));
-// 	sub = (char *)malloc(sizeof(char) * (len + 1));
-// 	if (!sub)
-// 		return (NULL);
-// 	if (len > ft_strlen(s))
-// 		len = ft_strlen(s);
-// 	while (i < len)
-// 		sub[i++] = s[start++];
-// 	sub[i] = '\0';
-// 	return (sub);
-// }
+	i = 0;
+	sign = 1;
+	base = 0;
+	while (str[i] != '\0' && (str[i] == ' ' || str[i] == '\n'
+			|| str[i] == '\t' || str[i] == '\r'
+			|| str[i] == '\f' || str[i] == '\v'))
+		i++;
+	if ((str[i] == '-' || str[i] == '+'))
+	{
+		if (str[i] == '-')
+			sign *= (-1);
+		i++;
+	}
+	while (str[i] != '\0' && (str[i] >= '0' && str[i] <= '9'))
+	{
+		base = base * 10 + (str[i] - '0');
+		i++;
+	}
+	return (base * sign);
+}
