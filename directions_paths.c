@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 18:53:56 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/27 17:12:53 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,8 @@ void	north_traitement(t_maze *data, char *path, int *flag , int start)
 			printf ("[%s]\n", data->north_path);
 		*flag += 1;
 	}
+	else
+		ft_error("north path ");
 	if (checker > 1)
 		ft_error("direction ");
 }
@@ -64,6 +66,8 @@ void	south_traitement(t_maze *data, char *path, int *flag , int start)
 			printf ("[%s]\n", data->south_path);
 		*flag += 1;
 	}
+	else
+		ft_error("south path ");
 	if (checker > 1)
 		ft_error("direction ");
 }
@@ -92,6 +96,8 @@ void	east_traitement(t_maze *data, char *path, int *flag , int start)
 			printf ("[%s]\n", data->east_path);
 		*flag += 1;
 	}
+	else
+		ft_error("east path ");
 	if (checker > 1)
 		ft_error("direction ");
 }
@@ -120,6 +126,8 @@ void	west_traitement(t_maze *data, char *path, int *flag , int start)
 		printf ("[%s]\n", data->west_path);
 		*flag += 1;
 	}
+	else
+		ft_error("west path ");
 	if (checker > 1)
 		ft_error("direction ");
 }
@@ -143,10 +151,10 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 	else if (path[start] == 'E' && path[start + 1] == 'A' && is_space(path[start + 2]))
 		east_traitement(data, path, flag, j);
 	else if (path[start] == 'F' && is_space(path[start + 1]))
-		{
-			printf ("hollllllllllla\n");
-			floor_traitement(data, path, flag, i);
-		}
+	{
+		printf ("hollllllllllla\n");
+		floor_traitement(data, path, flag, i);
+	}
 	// else if (path[start] == 'C' && path[start + 1] == ' ')
 	// 	ceiling_traitement(data, path, flag, i);
 	else if (is_wall(path) && *flag != 4)

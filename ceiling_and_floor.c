@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 22:39:54 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/27 18:07:47 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,22 +22,32 @@ void	floor_traitement(t_maze *data, char *path, int *flag , int start)
 	(void)data;
 	i = 0;
 	floor_check = ft_strdup("");
+	printf ("^%s^\n", ft_strchr(path, path[start]));
 	printf ("path : [%s]    start : %d\n", path, start);
 	while (path[start] == ' ' || path[start] == '\t')
 		start++;
+	path = ft_strtrim(ft_strchr(path, path[start]), " \t");
+	printf ("++++%s+++++\n", path);
+	
 	if (path[start] >= '0' && path[start] <= '9')
 	{
-		while (path[start] != ',' && path[start] != ' ' && path[start] != '\t')
+		while (path[start] >= '0' && path[start] <= '9')
 		{
-			s = ft_substr(path, start, 1);
-			floor_check = ft_strjoin(floor_check, s);
-			free(s);
+			while (path[start] != ',')
+			{
+				s = ft_substr(path, start, 1);
+				floor_check = ft_strjoin(floor_check, s);
+				free(s);
+				start++;
+			}
 			start++;
+			// check_fill(data, floor_check, i);
+			i++;
 		}
 		printf ("{{{%s}}}\n", floor_check);
-		
 		*flag += 1;
 	}
+	
 }
 
 // void	ceiling_traitement(t_maze *data, char *path, int *flag , int start)

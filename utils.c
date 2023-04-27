@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 14:08:18 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/27 18:21:58 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_error(char *status)
 {
 	ft_putstr(status);
 	write(1, "error!\n", 7);
-	exit (0);
+	exit (1);
 }
 
 void	ft_putstr(char *str)

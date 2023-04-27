@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 23:31:17 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/27 18:25:43 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,8 +53,9 @@ void	ft_putstr(char *str);
 char	*ft_substr(char const *s, unsigned int start, size_t len);
 char	*ft_strchr(const char *s, int c);
 int		ft_strcmp(char *s1, char *s2);
+int		ft_isdigit(int c);
 char	*get_next_line(int fd);
-int	ft_atoi(const char *str);
+int		ft_atoi(const char *str);
 char	*ft_strdup(char *s);
 char	*ft_strjoin(char *s1, char *s2);
 void	map_check(t_maze *data, int ac, char **av);
@@ -70,6 +71,10 @@ void	west_traitement(t_maze *data, char *path, int *flag , int start);
 void	directions_traitement(t_maze *data, char *path, int *flag , int start);
 void	floor_traitement(t_maze *data, char *path, int *flag , int start);
 int		is_space(char c);
+
+
+void	check_fill (t_maze *data , char *rgb, int index);
+void	check_rbg(char *rbg);
 
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);
