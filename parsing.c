@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/28 16:59:33 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 19:11:26 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,20 +68,14 @@ void	data_traitement(char **map, t_maze *data)
 	{
 		j = 0;
 		while (map[i] && (map[i][j] == ' ' || map[i][j] == '\t'))
-		{
-			if (map[i][j] == '\t')
-				ft_error("");
 			j++;
-		}
 		directions_traitement(data, map[i], &flag, j);
 		printf ("flag : %d\n", flag);
 		i++;
 	}
-	int k = 0;
-	while (k < 3)
+	while (map[i])
 	{
-		printf ("[%d]-----[%d]\n", data->floor_color[k], data->ceiling_color[k]);
-		k++;
+		// here where i can treat the map
 	}
 }
 

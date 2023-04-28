@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/28 18:18:12 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 18:41:18 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,14 +70,14 @@ void	south_traitement(t_maze *data, char *path, int *flag , int start);
 void	east_traitement(t_maze *data, char *path, int *flag , int start);
 void	west_traitement(t_maze *data, char *path, int *flag , int start);
 void	directions_traitement(t_maze *data, char *path, int *flag , int start);
-void	floor_traitement(t_maze *data, char *path, int *flag , int start);
-void	ceiling_traitement(t_maze *data, char *path, int *flag , int start);
 void	floor_ceiling_traitement(t_maze *data, char *path, int *flag , int start);
+void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag);
+
 int		is_space(char c);
 
 
 // void	check_n_fill_rgb(t_maze *data , char *rgb, int index);
-void	check_n_fill_rgb(int *color, char *rgb, int index);
+void	check_n_fill_rgb(int *color, char *rgb, int index, int *flag);
 void	check_rbg(char *rbg);
 void	check_rgb_validation(char *rbg, int *count);
 void	check_rgb(char *rbg);
