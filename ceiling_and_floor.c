@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 18:07:47 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 15:13:57 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,36 +15,48 @@
 void	floor_traitement(t_maze *data, char *path, int *flag , int start)
 {
 	int		i;
-	char	*s;
+	// char	*s;
 	// int		num;
 	char	*floor_check;
 	
 	(void)data;
 	i = 0;
-	floor_check = ft_strdup("");
+	// floor_check = ft_strdup("");
 	printf ("^%s^\n", ft_strchr(path, path[start]));
 	printf ("path : [%s]    start : %d\n", path, start);
 	while (path[start] == ' ' || path[start] == '\t')
 		start++;
 	path = ft_strtrim(ft_strchr(path, path[start]), " \t");
+	check_rgb(path);
 	printf ("++++%s+++++\n", path);
-	
+	start = 0;
 	if (path[start] >= '0' && path[start] <= '9')
 	{
 		while (path[start] >= '0' && path[start] <= '9')
 		{
-			while (path[start] != ',')
-			{
-				s = ft_substr(path, start, 1);
-				floor_check = ft_strjoin(floor_check, s);
-				free(s);
+			printf ("check i : %d path[start] : %c  start : %d\n", i, path[start], start);
+			floor_check = ft_substr(path, start, (size_t)rgb_len(path));
+			printf ("{*{%s}*}\n", floor_check);
+			while (path[start] && path[start] != ',')
 				start++;
-			}
+			// while (path[start] != ',')
+			// {
+			// 	printf ("1 : {*{%s}*}\n", floor_check);
+			// 	// s = ft_substr(path, start, 1);
+			// 	// floor_check = ft_strjoin_colors(floor_check, s);
+			// 	// free(s);
+			// 	start++;
+			// }
 			start++;
-			// check_fill(data, floor_check, i);
+			// if (!path[start])
+			// 	break;
+			check_n_fill_rgb(data, floor_check, i);
+			printf("**%d**\n", data->floor_color[i]);
+
 			i++;
+			printf ("{{{%s}}}\n", floor_check);
+			// free(floor_check);
 		}
-		printf ("{{{%s}}}\n", floor_check);
 		*flag += 1;
 	}
 	

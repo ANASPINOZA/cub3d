@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 18:25:43 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 15:04:51 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ typedef struct s_maze
 	char				*south_path;
 	char				*west_path;
 	char				*east_path;
-	int					*floor_color[3];
+	int					floor_color[3];
 	int					*ceiling_color[3];
 	int					map_width;
 	int					map_height;
@@ -73,8 +73,13 @@ void	floor_traitement(t_maze *data, char *path, int *flag , int start);
 int		is_space(char c);
 
 
-void	check_fill (t_maze *data , char *rgb, int index);
+void	check_n_fill_rgb(t_maze *data , char *rgb, int index);
 void	check_rbg(char *rbg);
+void	check_rgb_validation(char *rbg, int *count);
+void	check_rgb(char *rbg);
+char	*ft_strjoin_colors(char *s1, char *s2);
+int		rgb_len(char *rgb);
+
 
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);

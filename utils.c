@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 18:21:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 14:38:09 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,30 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	while (s1[j] != '\0')
 		str[i++] = s1[j++];
+	j = 0;
+	while (s2[j] != '\0')
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	free(s1);
+	return (str);
+}
+
+char	*ft_strjoin_colors(char *s1, char *s2)
+{
+	size_t	len2;
+	int		i;
+	int		j;
+	char	*str;
+
+	str = NULL;
+	i = 0;
+	j = 0;
+	if (!s2)
+		return (NULL);
+	len2 = ft_strlen(s2);
+	str = (char *)malloc((len2 + 1) * sizeof(char));
+	if (!str)
+		return (NULL);
 	j = 0;
 	while (s2[j] != '\0')
 		str[i++] = s2[j++];

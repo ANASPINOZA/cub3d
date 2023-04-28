@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 21:46:44 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 18:22:34 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 15:11:41 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,65 +20,83 @@ int	ft_isdigit(int c)
 		return (0);
 }
 
-void	check_rbg(char *rbg)
+void	check_rgb_validation(char *rbg, int *count)
 {
 	int		i;
-	int		count;
-	
+
 	i = 0;
-	count = 0;
 	while (rbg[i])
 	{
-		while (rbg[i] != ',')
+		while (rbg[i] && rbg[i] != ',')
 		{
 			if (!ft_isdigit(rbg[i]))
-				ft_error("rbg ");
+			{
+				ft_error("rbg 1");
+			}
 			i++;
 		}
+		if (!rbg[i])
+			break ;
 		if (rbg[i] == ',' && ft_isdigit(rbg[i + 1]))
 		{
 			i++;
-			count++;
+			*count += 1;
 		}
 		else
-			ft_error("rgb ");
+			ft_error("rgb 2");
 	}
 }
 
-
-void	rgb_is_valide(char *rgb)
+void	check_rgb(char *rbg)
 {
-	int			i;
-	int			num;
-	static int	count;
+	int		count;
 	
-	i = 0;
-	while (rgb[i])
-	{
-		if (!ft_isdigit(rgb[i]))
-			ft_error("rbg ");
-		i++;
-	}
-	if (!rgb[i])
-	{
-		num = ft_atoi(rgb);
-		if (num < 0 || num > 255)
-			ft_error("rbg ");
-		count++;
-		// return (num);
-	}
-	
+	count = 0;
+	check_rgb_validation(rbg, &count);
+	if (count != 2)
+		ft_error("rgb 3");
 }
 
-// void	check_fill (t_maze *data , char *rgb, int index)
+
+// int		extract_rgb(char *rgb)
 // {
-// 	char	*check_rgb;
-// 	// read	commit
+// 	int			num;
+	
+// 	num = ft_atoi(rgb);
+// 	if (num < 0 || num > 255)
+// 		ft_error("rbg 4");
+// 	return (num);
+
+	
 // }
 
-int	main ()
+int		rgb_len(char *rgb)
 {
-	char *s = "adawdawd220,100,0";
+	int		i;
 
-	check_rbg(s);
+	i = 0;
+	while (rgb[i] && rgb[i] != ',')
+		i++;
+	return (i);
 }
+
+void	check_n_fill_rgb(t_maze *data , char *rgb, int index)
+{
+	int		num;
+	// read	commit
+	
+	num = 0;
+	num = ft_atoi(rgb);
+	if (num < 0 || num > 255)
+		ft_error("rbg 5");
+		printf("//%d//\n", num);
+	data->floor_color[index] = num;
+	free(rgb);
+}
+
+// int	main ()
+// {
+// 	char *s = "adawdawd220,100,0";
+
+// 	check_rbg(s);
+// }
