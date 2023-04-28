@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 21:46:44 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/28 15:11:41 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 18:04:15 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,17 +80,21 @@ int		rgb_len(char *rgb)
 	return (i);
 }
 
-void	check_n_fill_rgb(t_maze *data , char *rgb, int index)
+void	check_n_fill_rgb(int *color, char *rgb, int index)
 {
 	int		num;
 	// read	commit
 	
+	// (void)index;
 	num = 0;
 	num = ft_atoi(rgb);
 	if (num < 0 || num > 255)
 		ft_error("rbg 5");
-		printf("//%d//\n", num);
-	data->floor_color[index] = num;
+	printf("//%d//\n", num);
+	// data->floor_color[index] = num;
+	color[index] = num;
+	// printf("//index : %d num : %d//\n",index , data->floor_color[index]);
+	// printf("//index : %d num : %d//\n",index , data->floor_color[index]);
 	free(rgb);
 }
 

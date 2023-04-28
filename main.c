@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:47:19 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 23:17:28 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 16:45:43 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 int		main(int ac, char **av)
 {
 	t_maze	data;
-
+	
+	// initialize_data(&data);
 	map_check(&data, ac, av);
 }

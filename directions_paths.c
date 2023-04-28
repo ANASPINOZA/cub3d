@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 17:12:53 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 18:17:48 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -153,11 +153,16 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 	else if (path[start] == 'F' && is_space(path[start + 1]))
 	{
 		printf ("hollllllllllla\n");
-		floor_traitement(data, path, flag, i);
+		// floor_traitement(data, path, flag, i);
+		floor_ceiling_traitement(data, path, flag, i);
 	}
-	// else if (path[start] == 'C' && path[start + 1] == ' ')
-	// 	ceiling_traitement(data, path, flag, i);
-	else if (is_wall(path) && *flag != 4)
+	else if (path[start] == 'C' && path[start + 1] == ' ')
+	{
+		printf ("hokkkkkkkkkkkka\n");
+		// ceiling_traitement(data, path, flag, i);
+		floor_ceiling_traitement(data, path, flag, i);
+	}
+	else if (is_wall(path) && *flag != 6)
 		ft_error("messed up map ");
 	else
 		ft_error("directions ");

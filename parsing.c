@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 14:37:18 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/28 16:59:33 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,12 @@ void	data_traitement(char **map, t_maze *data)
 		printf ("flag : %d\n", flag);
 		i++;
 	}
+	int k = 0;
+	while (k < 3)
+	{
+		printf ("[%d]-----[%d]\n", data->floor_color[k], data->ceiling_color[k]);
+		k++;
+	}
 }
 
 void	map_check(t_maze *data, int ac, char **av)
@@ -100,4 +106,10 @@ void	map_check(t_maze *data, int ac, char **av)
 	// 	i++;
 	// }
 	data_traitement(map_two_dim, data);
+	// int k = 0;
+	// while (data->floor_color[k] && data->ceiling_color[k] && i < 3)
+	// {
+	// 	printf ("[%d]-----[%d]\n", data->floor_color[k], data->ceiling_color[k]);
+	// 	k++;
+	// }
 }
