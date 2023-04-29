@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/28 19:11:26 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/29 18:59:58 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,17 @@ void	data_traitement(char **map, t_maze *data)
 	while (map[i])
 	{
 		// here where i can treat the map
+		while (map[i] && map[i][0] == ' ' && !map[i][1])
+			i++;
+		if (is_wall(map[i], 2) == 1)
+		{
+			// to treat map
+		}
+		else
+			ft_error ("map ");
+		printf ("[%s]\n", map[i]);
+		i++;
+		
 	}
 }
 
