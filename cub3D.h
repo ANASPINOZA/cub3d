@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/29 14:42:37 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:02:23 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_maze
 	int					ceiling_color[3];
 	int					map_width;
 	int					map_height;
+	int					map_lenght;
 	void				*mlx_ptr;
 	void				*window_ptr;
 	void				*image_ptr;
@@ -84,6 +85,10 @@ void	check_rgb(char *rbg);
 char	*ft_strjoin_colors(char *s1, char *s2);
 int		rgb_len(char *rgb);
 
+int		get_map_len(char **map, int i);
+int		plyer_direction(char c);
+void	trimming_endofmap(char **map);
+int		custom_space(char **map, int i);
 
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);

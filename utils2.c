@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:13:46 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/28 16:46:17 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:05:24 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,3 +37,50 @@
 // 	}
 // 	s = str;
 // }
+
+int		get_map_len(char **map, int i)
+{
+	int		len;
+
+	len = 0;
+	while (map[i])
+	{
+		if (map[i][0] == ' ' && map[i][1] == '\0')
+			ft_error ("splited map ");
+		if (!is_wall(map[i], 1))
+			break ;
+		i++;
+		len++;
+	}
+	return (len);
+}
+
+int		plyer_direction(char c)
+{
+	if (c == 'N' || c == 'S' || c == 'E' || c == 'W')
+		return (1);
+	return (0);
+}
+
+void	trimming_endofmap(char **map)
+{
+	int		i;
+
+	i = 0;
+	while (map[i + 1])
+		i++;
+	printf ("[[size : %d]]\n", i);
+	while (map[i] && custom_space(map, i))
+	{
+		free(map[i]);
+		map[i] = NULL;
+		i--;
+	}
+}
+
+int		custom_space(char **map, int i)
+{
+	if (map[i][0] == ' ' && map[i][1] == '\0')
+		return (1);
+	return (0);
+}

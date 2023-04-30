@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/29 18:59:58 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/30 15:04:59 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,9 @@ void	data_traitement(char **map, t_maze *data)
 		if (is_wall(map[i], 2) == 1)
 		{
 			// to treat map
+			data->map_lenght = get_map_len(map, i);
+			printf ("map len : %d\n", data->map_lenght);
+			// if (!is_wall(map[data]))
 		}
 		else
 			ft_error ("map ");
@@ -103,13 +106,16 @@ void	map_check(t_maze *data, int ac, char **av)
 	map_one_dim = extract_map(ac, av);
 	// printf ("[%s]\n", map_one_dim);
 	map_two_dim = ft_split(map_one_dim, '\n');
-	// while (map_two_dim[i])
-	// {
-		 
-	// 	ft_putstr(map_two_dim[i]);
-	// 	ft_putstr("\n");
-	// 	i++;
-	// }
+	trimming_endofmap(map_two_dim);
+	int count = 0;;
+	while (map_two_dim[i])
+	{	 
+		ft_putstr(map_two_dim[i]);
+		ft_putstr("\n");
+		i++;
+		count++;
+	}
+	// printf ("[[]count : %d]\n",count);
 	data_traitement(map_two_dim, data);
 	// int k = 0;
 	// while (data->floor_color[k] && data->ceiling_color[k] && i < 3)

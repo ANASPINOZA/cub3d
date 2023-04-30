@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/29 15:22:15 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/30 14:58:59 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ void	floor_ceiling_traitement(t_maze *data, char *color, int *flag , int start)
 		fill_floor_ceiling(data, color, c, flag);
 }
 
-void		fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag)
+void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag)
 {
 	int		i;
 	int		j;
@@ -66,13 +66,14 @@ int		is_wall(char *line, int flag)
 			i++;
 		if (flag == 1)
 		{
-			while (line[i] == '1' || line[i] == '0')
+			while (line[i] == '1' || line[i] == '0' \
+				|| line[i] == ' ' || plyer_direction(line[i]))
 				i++;
 		}
-		else	
+		else
 		{
-			while (line[i] == '1')
-			i++;
+			while (line[i] == '1' || line[i] == ' ')
+				i++;
 		}
 		if (!line[i])
 			return (1);
