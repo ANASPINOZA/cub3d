@@ -6,13 +6,17 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 15:02:23 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/30 22:57:29 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #if !defined(CUB3D_H)
 #define CUB3D_H
 
+#define NORTH 1
+#define SOUTH 2
+#define EAST 3
+#define WEST 4
 # include <unistd.h>
 # include <stdlib.h>
 # include <stdio.h>
@@ -24,8 +28,7 @@ typedef struct s_player
 {
 	int				px;
 	int				py;
-	
-	
+	int				player_direction;
 }t_playre;
 
 typedef struct s_maze
@@ -38,6 +41,7 @@ typedef struct s_maze
 	char				*east_path;
 	int					floor_color[3];
 	int					ceiling_color[3];
+	int					start_map_index;
 	int					map_width;
 	int					map_height;
 	int					map_lenght;
@@ -65,6 +69,8 @@ int		ft_strncmp(const char *s1, const char *s2, size_t n);
 char	*ft_strtrim(char *s1, char *set);
 char	*ft_strrchr(const char *s, int c);
 int		is_wall(char *line, int flag);
+void	is_only_wall(char *line, int *i, int flag);
+
 
 void	north_traitement(t_maze *data, char *path, int *flag , int start);
 void	south_traitement(t_maze *data, char *path, int *flag , int start);
@@ -79,16 +85,21 @@ int		is_space(char c);
 
 // void	check_n_fill_rgb(t_maze *data , char *rgb, int index);
 void	check_n_fill_rgb(int *color, char *rgb, int index, int *flag);
-void	check_rbg(char *rbg);
-void	check_rgb_validation(char *rbg, int *count);
-void	check_rgb(char *rbg);
+void	check_rgb(char *rgb);
+void	check_rgb_validation(char *rgb, int *count);
+void	check_rgb(char *rgb);
 char	*ft_strjoin_colors(char *s1, char *s2);
 int		rgb_len(char *rgb);
 
 int		get_map_len(char **map, int i);
-int		plyer_direction(char c);
+// int		player_direction(char c);
+int		player_direction(t_maze *data ,char c);
+void	map_is_valid(char **map, int start);
+
 void	trimming_endofmap(char **map);
 int		custom_space(char **map, int i);
+void	check_map_items(t_maze *data, char **map, int i);
+
 
 // char	*ft_strdupi(const char *s1, int l);
 // int	count_d(const char *s, char c);
