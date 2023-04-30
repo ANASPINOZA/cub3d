@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:13:46 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 23:47:03 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/04/30 23:50:16 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int		player_direction(t_maze *data ,char c)
 			data->player.player_direction = EAST;
 		else if (c == 'W')
 			data->player.player_direction = WEST;
-		return (1);`
+		return (1);
 	}
 	return (0);
 }
