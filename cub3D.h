@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 22:57:29 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/03 02:25:38 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,7 @@ typedef struct s_player
 typedef struct s_maze
 {
 	struct s_player		player;
+	char				**map;
 	char				**map_checked;
 	char				*north_path;
 	char				*south_path;
@@ -45,6 +46,9 @@ typedef struct s_maze
 	int					map_width;
 	int					map_height;
 	int					map_lenght;
+	int					lock_c;
+	int					lock_f;
+	int					player_count;
 	void				*mlx_ptr;
 	void				*window_ptr;
 	void				*image_ptr;
@@ -80,7 +84,10 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start);
 void	floor_ceiling_traitement(t_maze *data, char *path, int *flag , int start);
 void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag);
 
-int		is_space(char c);
+// int		is_space(char c);
+int	is_space(char c, int flag);
+void	check_space_surrounding(char **map, int	i, int j);
+void	store_map(char **map, t_maze *data);
 
 
 // void	check_n_fill_rgb(t_maze *data , char *rgb, int index);

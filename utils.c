@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/28 14:38:09 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/02 02:52:35 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -170,10 +170,18 @@ char	*ft_strrchr(const char *s, int c)
 	return (NULL);
 }
 
-int	is_space(char c)
+int	is_space(char c, int flag)
 {
-	if (c == ' ' || c == '\t')
-		return (1);
+	if (flag)
+	{
+		if (c == ' ' || c == '\t' || c == '\n' || c == '\0')
+			return (1);	
+	}
+	else
+	{
+		if (c == ' ' || c == '\t')
+			return (1);
+	}
 	return (0);
 }
 

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:14 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 22:59:37 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/02 19:39:48 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,8 +74,8 @@ void	data_traitement(char **map, t_maze *data)
 		printf ("flag : %d\n", flag);
 		i++;
 	}
-	while (map[i])
-	{
+	// while (map[i])
+	// {
 		// here where i can treat the map
 		printf ("start of str : |%s| index : %d\n", map[i], i);
 		while (custom_space(map, i))
@@ -95,14 +95,15 @@ void	data_traitement(char **map, t_maze *data)
 			data->start_map_index = i;
 			printf("start index : %d\n", data->start_map_index);
 			printf ("player pov : %d\n", data->player.player_direction);
-			// map_is_valid(map, i);
+			map_is_valid(map, i + 1);
 		}
 		else
 			ft_error ("map ");
 		printf ("[%s]\n", map[i]);
 		i++;
+		store_map(map, data);
 		
-	}
+	// }
 }
 
 void	map_check(t_maze *data, int ac, char **av)

@@ -6,14 +6,14 @@
 #    By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/12 16:42:11 by aadnane           #+#    #+#              #
-#    Updated: 2023/04/28 16:20:32 by aadnane          ###   ########.fr        #
+#    Updated: 2023/05/01 16:47:16 by aadnane          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
 FLAGS = -Wall -Werror -Wextra
 SRCS = main.c gnl.c parsing.c utils.c split.c directions_paths.c \
-	ceiling_and_floor.c utils_floor_celling.c utils2.c
+	ceiling_and_floor.c utils_floor_celling.c utils2.c utils3.c
 OBJS = $(SRCS:.c=.o)
 NAME = cub3D
 HEADER = cub3D.h

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 21:46:44 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 16:05:03 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/02 18:33:44 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,8 @@ int		rgb_len(char *rgb)
 	int		i;
 
 	i = 0;
-	while (rgb[i] && rgb[i] != ',')
+	printf ("rbg       : [%s]\n", rgb);
+	while (rgb[i] && (rgb[i] != ',' || rgb[i] != '\0'))
 		i++;
 	return (i);
 }

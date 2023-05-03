@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/27 18:24:12 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/27 19:10:47 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/01 19:55:24 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -99,6 +99,7 @@ void	check_rbg(char *rbg)
 		ft_error("rgb 3");
 	printf("success\n");
 }
+
 
 int	main ()
 {

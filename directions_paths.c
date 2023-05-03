@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/15 22:43:23 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 15:41:37 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/02 17:09:34 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,27 +142,28 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start)
 	printf ("start : %d\n", start);
 	if (path[0] == ' ' && path[1] == '\0')
 		return;
-	else if (path[start] == 'N' && path[start + 1] == 'O' && is_space(path[start + 2]))
+	else if (path[start] == 'N' && path[start + 1] == 'O' && is_space(path[start + 2], 0))
 		north_traitement(data, path, flag, j);
-	else if (path[start] == 'S' && path[start + 1] == 'O' && is_space(path[start + 2]))
+	else if (path[start] == 'S' && path[start + 1] == 'O' && is_space(path[start + 2], 0))
 		south_traitement(data, path, flag, j);
-	else if (path[start] == 'W' && path[start + 1] == 'E' && is_space(path[start + 2]))
+	else if (path[start] == 'W' && path[start + 1] == 'E' && is_space(path[start + 2], 0))
 		west_traitement(data, path, flag, j);
-	else if (path[start] == 'E' && path[start + 1] == 'A' && is_space(path[start + 2]))
+	else if (path[start] == 'E' && path[start + 1] == 'A' && is_space(path[start + 2], 0))
 		east_traitement(data, path, flag, j);
-	else if (path[start] == 'F' && is_space(path[start + 1]))
+	else if (path[start] == 'F' && is_space(path[start + 1], 0))
 	{
 		printf ("hollllllllllla\n");
 		// floor_traitement(data, path, flag, i);
 		floor_ceiling_traitement(data, path, flag, i);
+		
 	}
-	else if (path[start] == 'C' && path[start + 1] == ' ')
+	else if (path[start] == 'C' && is_space(path[start + 1], 0))
 	{
 		printf ("hokkkkkkkkkkkka\n");
 		// ceiling_traitement(data, path, flag, i);
 		floor_ceiling_traitement(data, path, flag, i);
 	}
-	else if (is_wall(path, 1) && *flag != 6)
+	else if (is_wall(path, 1) && *flag != 8)
 		{ft_error("messed up map ");}
 	else
 		ft_error("directions ");

@@ -1,0 +1,4 @@
+ // same RGB key example [C, C] [OK]
+ // read all the number in RGB [OK]
+ // check the wall not splited  [OK]
+ // error in case of no player exist [OK]

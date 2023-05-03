@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 23:01:06 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/02 18:26:42 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,26 @@
 
 void	floor_ceiling_traitement(t_maze *data, char *color, int *flag , int start)
 {
-	int		i;
-	char	c;
-	
-	i = 0;
+	static int	i;
+	char		c;
+	// static int	lock_c;
+	// static int	lock_f;
+
+	i++;
 	while (color[start] == ' ' || color[start] == '\t')
 		start++;
 	c = color[start - 2];
+	if (c == 'F')
+		data->lock_f += 1;
+	else if (c == 'C')
+		data->lock_c += 1;
 	color = ft_strtrim(ft_strchr(color, color[start]), " \t");
 	check_rgb(color);
 	start = 0;
 	if (color[start] >= '0' && color[start] <= '9')
 		fill_floor_ceiling(data, color, c, flag);
+	if (data->lock_f > 1 || data->lock_c > 1)
+		*flag -= 2;
 }
 
 void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag)
@@ -46,6 +54,7 @@ void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag)
 		j++;
 		while (color[j] == ' ')
 			j++;
+			// printf ("{{{ %s }}}\n", to_check);
 		if (f_or_c == 'F')
 			check_n_fill_rgb(data->floor_color, to_check, i, &flag_checker);
 		else

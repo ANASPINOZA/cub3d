@@ -6,37 +6,40 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/28 16:13:46 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/30 23:50:16 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/02 19:11:37 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 
-// void	initialize_data(t_maze *data)
-// {
-// 	int i ;
+void	initialize_data(t_maze *data)
+{
+	// int i ;
 
-// 	i = 0;
-// 	data->floor_color = malloc(sizeof(int) * 3);
-// 	data->ceiling_color = malloc(sizeof(int) * 3);
-// 	ft_bzero(data->floor_color, 3);
-// 	ft_bzero(data->ceiling_color, 3);
-// }
+	// i = 0;
+	// data->floor_color = malloc(sizeof(int) * 3);
+	// data->ceiling_color = malloc(sizeof(int) * 3);
+	// ft_bzero(data->floor_color, 3);
+	// ft_bzero(data->ceiling_color, 3);
+	data->lock_c = 0;
+	data->lock_f = 0;
+	data->player_count = 0;
+}
 
-// void	ft_bzero(void *s, size_t n)
-// {
-// 	size_t			i;
-// 	unsigned char	*str;
+void	ft_bzero(void *s, size_t n)
+{
+	size_t			i;
+	unsigned char	*str;
 
-// 	i = 0;
-// 	str = (unsigned char *)s;
-// 	while (i < n)
-// 	{
-// 		str[i] = 0;
-// 		i++;
-// 	}
-// 	s = str;
-// }
+	i = 0;
+	str = (unsigned char *)s;
+	while (i < n)
+	{
+		str[i] = 0;
+		i++;
+	}
+	s = str;
+}
 
 int		get_map_len(char **map, int i)
 {
@@ -112,53 +115,92 @@ int		custom_space(char **map, int i)
 void	check_map_items(t_maze *data, char **map, int i)
 {
 	int		j;
-	int		player_count;
+	// int		player_count;
 	
 	j = 0;
-	player_count = 0;
+	// player_count = 0;
 	while (map[i])
 	{
 		j = 0;
 		while (map[i][j])
 		{
+			printf ("|%c|", map[i][j]);
 			if (is_not_item(map[i][j], data))
 				ft_error ("items ");
+
 			if (player_direction(data, map[i][j]))
 			{
 				data->player.px = j;
 				data->player.py = i;
-				player_count++;
+				printf ("\n|{| %d |}|\n",data->player_count);
+				data->player_count += 1;
+				printf ("\n|{| %d |}|\n",data->player_count);
 			}
 			j++;
 		}
+		printf ("\n");
 		i++;
 	}
-	if (player_count > 1)
+	printf ("|| %d ||\n",data->player_count);
+	if (data->player_count == 0)
+		ft_error ("no player ");
+	if (data->player_count > 1)
 		ft_error("more than one player ");
 }
+
+// int ft_calcul_tab()
+// {
+	
+// }
 
 void	map_is_valid(char **map, int start)
 {
 	int		i;
 	int		j;
+	int		k;
 	int		len1;
 	int		len2;
 	
 	i = start;
 	j = 0;
+	k = 0;
 	len1 = 0;
 	len2 = 0;
-	while (map[i])
+	// printf ("|| %s ||\n", map[i]);
+	while (map[i] && map [i + 1])
 	{
-		if (map[i][0] == '1' && map[i][ft_strlen(map[i]) - 1] == '1')
-		{
+		j = 0;
+		// if (map[i][0] == '1' && map[i][ft_strlen(map[i]) - 1] == '1')
+		// {
+			// while (is_space(map[i][j], 0))
+			// 	i++;
+			// while (is_space(map[i][k], 0))
+			// 	k++;
+			
 			len1 = ft_strlen(map[i]);
 			len2 = ft_strlen(map[i + 1]);
-			if (map[i + 1] && len1 > len2)
+			if (len1 > len2)
 			{
-				if (!is_wall(ft_substr(map[i], len2, len1 - len2), 7))
-					ft_error("opend map 1");
+				if (!is_wall(ft_substr(map[i], len2, len1 - len2), 5))
+					ft_error("opened map 1");
 			}
-		}
+			else if (len2 > len1)
+			{
+				if (!is_wall(ft_substr(map[i + 1], len1, len2 - len1), 5))
+					ft_error("opened map 11");
+			}
+			// check '0' suroundings
+			while (map[i][j] && map[i + 1])
+			{
+				// printf ("{ %s }\n", map[i]);
+				check_space_surrounding (map, i, j);
+				j++;
+			}
+
+		// }
+		// else
+		// 	ft_error ("side wall ");
+		i++;
+		printf ("{| %s |}\n", map[i]);
 	}
 }
