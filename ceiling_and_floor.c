@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/16 16:55:45 by aadnane           #+#    #+#             */
-/*   Updated: 2023/05/02 18:26:42 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/03 14:49:21 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ void	floor_ceiling_traitement(t_maze *data, char *color, int *flag , int start)
 {
 	static int	i;
 	char		c;
-	// static int	lock_c;
-	// static int	lock_f;
 
 	i++;
 	while (color[start] == ' ' || color[start] == '\t')
@@ -54,7 +52,6 @@ void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag)
 		j++;
 		while (color[j] == ' ')
 			j++;
-			// printf ("{{{ %s }}}\n", to_check);
 		if (f_or_c == 'F')
 			check_n_fill_rgb(data->floor_color, to_check, i, &flag_checker);
 		else
@@ -70,7 +67,6 @@ int		is_wall(char *line, int flag)
 	int		i;
 
 	i = 0;
-	// printf ("{%s}\n", line);
 	while (line[i])
 	{
 		while (line[i] == ' ' || line[i] == '\t')
@@ -82,11 +78,6 @@ int		is_wall(char *line, int flag)
 				i++;
 		}
 		is_only_wall(line, &i, flag);
-		// else
-		// {
-		// 	while (line[i] == '1' || line[i] == ' ')
-		// 		i++;
-		// }
 		if (!line[i])
 			return (1);
 		else

@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/26 21:46:44 by aadnane           #+#    #+#             */
-/*   Updated: 2023/05/02 18:33:44 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/03 15:00:29 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,7 +64,6 @@ int		rgb_len(char *rgb)
 	int		i;
 
 	i = 0;
-	printf ("rbg       : [%s]\n", rgb);
 	while (rgb[i] && (rgb[i] != ',' || rgb[i] != '\0'))
 		i++;
 	return (i);
@@ -78,15 +77,7 @@ void	check_n_fill_rgb(int *color, char *rgb, int index, int *flag)
 	num = ft_atoi(rgb);
 	if (num < 0 || num > 255)
 		ft_error("rgb 5");
-	printf("//%d//\n", num);
 	color[index] = num;
 	*flag += 1;
 	free(rgb);
 }
-
-// int	main ()
-// {
-// 	char *s = "adawdawd220,100,0";
-
-// 	check_rgb(s);
-// }

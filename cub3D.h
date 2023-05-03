@@ -6,7 +6,7 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/11 23:50:08 by aadnane           #+#    #+#             */
-/*   Updated: 2023/05/03 02:25:38 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/03 15:16:50 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,44 +84,30 @@ void	directions_traitement(t_maze *data, char *path, int *flag , int start);
 void	floor_ceiling_traitement(t_maze *data, char *path, int *flag , int start);
 void	fill_floor_ceiling(t_maze *data, char *color, char f_or_c, int *flag);
 
-// int		is_space(char c);
-int	is_space(char c, int flag);
+
+int		is_space(char c, int flag);
 void	check_space_surrounding(char **map, int	i, int j);
 void	store_map(char **map, t_maze *data);
+void	map_treatment(t_maze *data, char **map, int i);
 
 
-// void	check_n_fill_rgb(t_maze *data , char *rgb, int index);
+void check_line_diff(char **map, int i, int len1, int len2);
 void	check_n_fill_rgb(int *color, char *rgb, int index, int *flag);
 void	check_rgb(char *rgb);
 void	check_rgb_validation(char *rgb, int *count);
 void	check_rgb(char *rgb);
-char	*ft_strjoin_colors(char *s1, char *s2);
+// char	*ft_strjoin_colors(char *s1, char *s2);
 int		rgb_len(char *rgb);
 
 int		get_map_len(char **map, int i);
-// int		player_direction(char c);
 int		player_direction(t_maze *data ,char c);
 void	map_is_valid(char **map, int start);
+int		is_not_item(char c, t_maze *data);
 
 void	trimming_endofmap(char **map);
 int		custom_space(char **map, int i);
 void	check_map_items(t_maze *data, char **map, int i);
 
-
-// char	*ft_strdupi(const char *s1, int l);
-// int	count_d(const char *s, char c);
-// static int	l_i(const char *s, char c, int i, int *l);
-// char	**ft_split(char const *s, char c);
-// void	free_t(char **str);
-
-// char    **ft_split(char *str);
 char	**ft_split(char const *s, char c);
-// void	fill_string (char **string, char *str);
-// char	*strdup_dev(char *str);
-// int		word_len(char *str);
-// int		word_count(char *str);
-// int		is_delem(char c);
-
-
 
 #endif // CUB3D_H

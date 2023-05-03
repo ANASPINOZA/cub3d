@@ -6,102 +6,11 @@
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/12 17:37:16 by aadnane           #+#    #+#             */
-/*   Updated: 2023/04/26 21:44:37 by aadnane          ###   ########.fr       */
+/*   Updated: 2023/05/03 14:58:35 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
-// int		is_delem(char c)
-// {
-// 	if (c == '\n')
-// 		return (1);
-// 	return (0);
-// }
-
-// int		word_count(char *str)
-// {
-// 	int		i;
-// 	int		flag;
-// 	int		count;
-
-// 	i = 0;
-// 	flag = 0;
-// 	count = 0;
-// 	while (str[i])
-// 	{
-// 		if (is_delem(str[i]))
-// 			flag = 0;
-// 		else if (flag == 0)
-// 		{
-// 			count++;
-// 			flag = 1;
-// 		}
-// 		i++;
-// 	}
-// 	return (count);
-// }
-
-// int			word_len(char *str)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	while (str[i] != '\n' && str[i])
-// 		i++;
-// 	return (i);
-// }
-
-// char		*strdup_dev(char *str)
-// {
-// 	int		i;
-// 	int		len;
-// 	char	*s;
-
-// 	i = 0;
-// 	// printf ("[%s]\n",str);
-// 	len = word_len(str);
-// 	s = malloc (sizeof(char) * (len + 1));
-// 	while (str[i] && s[i])
-// 	{
-// 		s[i] = str[i];
-// 		i++;
-// 	}
-// 	s[len] = '\0';
-// 	return (s);
-// }
-
-// void		fill_string (char **string, char *str)
-// {
-// 	int		i;
-
-// 	i = 0;
-// 	// while (*str == 32 || *str == 9 || *str == '\n')
-// 	// 	str++;
-// 	while (*str)
-// 	{
-// 		string[i] = strdup_dev(str);
-
-// 		i++;
-// 		while (*str && *str != '\n')
-// 			str++;
-// 		while (*str == '\n')
-// 			str++;
-// 	}
-// }
-
-// char    **ft_split(char *str)
-// {
-// 	int		len;
-// 	char	**string;
-
-// 	len = word_count(str);
-
-// 	string = malloc (sizeof (char *) * (len + 1));
-// 	string[len] = NULL;
-// 	fill_string(string, str);
-// 	return (string);
-// }
 
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
@@ -202,17 +111,3 @@ char	**ft_split(char const *s, char c)
 	split = ft_chck(split, s, c);
 	return (split);
 }
-
-// int		main ()
-// {
-// 	char **res;
-// 	int		i;
-
-// 	i = 0;
-// 	res = ft_split(" hi i'm \nanas");
-// 	while (res[i])
-// 	{
-// 		printf ("[%s]\n", res[i++]);
-// 	}
-// }
-

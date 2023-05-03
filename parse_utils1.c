@@ -1,61 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   utils.c                                            :+:      :+:    :+:   */
+/*   parse_utils1.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aadnane <aadnane@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/04/12 01:23:30 by aadnane           #+#    #+#             */
-/*   Updated: 2023/05/02 02:52:35 by aadnane          ###   ########.fr       */
+/*   Created: 2023/05/03 15:05:01 by aadnane           #+#    #+#             */
+/*   Updated: 2023/05/03 15:06:56 by aadnane          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
-
-int		ft_strlen(char *str)
-{
-	int		i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}
-
-void	ft_error(char *status)
-{
-	ft_putstr(status);
-	write(1, "error!\n", 7);
-	exit (1);
-}
-
-void	ft_putstr(char *str)
-{
-	write(1, str, ft_strlen(str));
-}
-
-char	*ft_strchr(const char *s, int c)
-{
-	while (*s)
-	{
-		if (*s == (unsigned char)c)
-			return ((char *)s);
-		s++;
-	}
-	if (*s == (unsigned char)c)
-		return ((char *)s);
-	return (NULL);
-}
-
-int	ft_strcmp(char *s1, char *s2)
-{
-	unsigned int	i;
-
-	i = 0;
-	while (s1[i] && s2[i] && s1[i] == s2[i])
-		i++;
-	return (s1[i] - s2[i]);
-}
 
 char	*ft_strjoin(char *s1, char *s2)
 {
@@ -77,30 +32,6 @@ char	*ft_strjoin(char *s1, char *s2)
 		return (NULL);
 	while (s1[j] != '\0')
 		str[i++] = s1[j++];
-	j = 0;
-	while (s2[j] != '\0')
-		str[i++] = s2[j++];
-	str[i] = '\0';
-	free(s1);
-	return (str);
-}
-
-char	*ft_strjoin_colors(char *s1, char *s2)
-{
-	size_t	len2;
-	int		i;
-	int		j;
-	char	*str;
-
-	str = NULL;
-	i = 0;
-	j = 0;
-	if (!s2)
-		return (NULL);
-	len2 = ft_strlen(s2);
-	str = (char *)malloc((len2 + 1) * sizeof(char));
-	if (!str)
-		return (NULL);
 	j = 0;
 	while (s2[j] != '\0')
 		str[i++] = s2[j++];
@@ -168,21 +99,6 @@ char	*ft_strrchr(const char *s, int c)
 		i--;
 	}
 	return (NULL);
-}
-
-int	is_space(char c, int flag)
-{
-	if (flag)
-	{
-		if (c == ' ' || c == '\t' || c == '\n' || c == '\0')
-			return (1);	
-	}
-	else
-	{
-		if (c == ' ' || c == '\t')
-			return (1);
-	}
-	return (0);
 }
 
 int	ft_atoi(const char *str)
